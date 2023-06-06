@@ -10,6 +10,10 @@ namespace LTest{
     struct TestUnit {
         struct Unit{
 
+            Unit() {}
+            Unit(int l, const char* filename, const std::function<void(Unit&)>& func) :
+                    line(l), file(filename), function(func), errs(0) {}
+            
             int line = 0;
             const char* file;
             std::function<void(Unit&)> function;
